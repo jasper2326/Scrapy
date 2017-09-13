@@ -3,8 +3,10 @@
 # coding: cp936
 
 import re
-import Ch1_download
+
 from bs4 import BeautifulSoup
+
+from eleme.Scrapy.Ch1 import Ch1_download
 
 url = 'http://example.webscraping.com/places/default/view/united-kindom-239'
 html = Ch1_download.download_3(url)
