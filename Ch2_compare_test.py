@@ -15,7 +15,7 @@ for name, scraper in [('Regular expressions', Ch2_compare.re_scraper),
                       ('Lxml', Ch2_compare.lxml_scraper)]:
     start = time.time()
     for i in range(NUM_ITERATIONS):
-        if scraper == Ch2_compare.re_scraper(html):
+        if scraper == Ch2_compare.re_scraper:
             re.purge()
         result = scraper(html)
         assert(result['area'] == '244,820 square kilometres')
