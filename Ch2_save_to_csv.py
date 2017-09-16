@@ -26,4 +26,4 @@ class ScrapeCallback:
                 row.append(tree.cssselect('table > tr#places_%s__row > td.w2p_fw' % field)[0].text_content())
             self.writer.writerow(row)
 
-Ch2_link_crawler.link_crawler('http://example.webscraping.com/places/default', '/(index|view)', max_depth=1, scrape_callback=ScrapeCallback())
+Ch2_link_crawler.link_crawler('http://example.webscraping.com', '/(index||view)', max_depth=-1, scrape_callback=ScrapeCallback())

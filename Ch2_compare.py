@@ -12,17 +12,18 @@ FIELDS = ('area', 'population', 'country', 'capital',
           'languages', 'neighbours')
 
 def re_scraper(html):
-    results = {}
+    result = {}
     for field in FIELDS:
-        results[field] = re.search('<tr id="places_%s__row">.*?<td class="w2p_fw">(.*?)</td>' % field, html).groups()[0]
-    return results
+        result[field] = re.search('<tr id="places_%s__row">.*?td class="w2p_fw">(.*?)</td>' % field, html).groups()[0]
+        return result
 
 
 def bs_scraper(html):
     soup = BeautifulSoup(html, 'html.parser')
     result = {}
     for field in FIELDS:
-        result[field] = soup.find('table').find('tr', id='places_%s__row' % field).find('td',
+        result[field] = soup.find('table').find('tr',
+                                                id='places_%s__row' % field).find('td',
                                                                                   class_='w2p_fw').text
         return result
 
